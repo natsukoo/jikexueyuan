@@ -1,6 +1,8 @@
-*{
-    margin: 0;padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
+
 html,
 body {
     width: 100%;
@@ -123,9 +125,11 @@ body {
     background-color: #dfdfdf;
     color: #333;
 }
-.header .search_box .keywords:focus+.hot_words{
+
+.header .search_box .keywords:focus+.hot_words {
     display: none;
 }
+
 .header .wrap .loginbox {
     float: right;
     font-size: 13px;
@@ -224,67 +228,59 @@ body {
 
 .container .banner_wrap .lesson_left ul {
     width: 100%;
-    height: 290px;
+    height: 300px;
     border-top: #35b558 3px solid;
     border-left: 1px solid #e4e4e4;
-    /*border-right:1px solid #e4e4e4;*/
-    margin: 0;
-    padding: 0;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
     overflow: hidden;
 }
 
 .container .banner_wrap .lesson_left ul li {
     width: 208px;
     height: 37px;
-    /*负边距市拿来重叠的*/
-    margin-top: -1px;
-    overflow: hidden;
-    position: relative;
     list-style: none;
+    border: 1px solid #f5f5f5;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.container .banner_wrap .lesson_left ul li a {
+    text-decoration: none;
+    color: #000;
 }
 
 .container .banner_wrap .lesson_left ul li>a {
     display: block;
     margin-left: -2px;
     width: 193px;
-    height: 37px;
+    height: 35px;
     text-decoration: none;
-    border: 1px solid #f5f5f5;
     font-size: 14px;
     line-height: 37px;
     padding-left: 15px;
-    color: #000;
+}
+
+.container .banner_wrap .lesson_left ul li a:hover {
+    color: #35b558;
 }
 
 .container .banner_wrap .lesson_left ul li>a:after {
-    position: absolute;
-    right: 10px;
-    top: 5px;
     content: url(../img/arrowr.ico);
+    float: right;
+    vertical-align: middle;
+    margin-right: 10px;
+    display: block;
+    width: 15px;
+    height: 15px;
 }
 
 .container .banner_wrap .lesson_left ul li>a:hover {
-    color: #35b558;
     border-left: 2px solid #35b558;
     border-right: none;
 }
 
 .container .banner_wrap .lesson_left ul li>a:hover:after {
     content: "";
-}
-
-
-/*这一段想实现覆盖在另外的元素上面的，可是都没有起作用*/
-
-.container .banner_wrap .lesson_left ul:hover,
-.container .banner_wrap .lesson_left ul li:hover {
-    overflow: visible;
-    z-index: 3;
-    background-color: #fff;
-}
-
-.container .banner_wrap .lesson_left ul:hover+.line {
-    visibility: hidden;
 }
 
 .container .banner_wrap .lesson_left ul li .folder_setion {
@@ -294,71 +290,57 @@ body {
     width: 400px;
     min-height: 410px;
     border: 1px solid #e4e4e4;
-    overflow: hidden;
+    background-color: rgba(255, 255, 255, 1);
     font-size: 13px;
-}
-
-.folder_setion dl {
-    margin: 0;
 }
 
 .folder_setion dl dt {
     height: 36px;
-    margin: 0;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-bottom: 1px solid #e4e4e4;
+    margin: 0 10px;
     line-height: 37px;
+    border-bottom: 1px solid #e4e4e4;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .folder_setion dl dd {
+    margin: 5px 0;
+    padding-left: 10px;
     display: inline-block;
     height: 36px;
     line-height: 36px;
-    margin: 0;
 }
 
-
-/*下面这个样式好像没有生效*/
-
-.folder_setion dl dd:nth-child(1) {
-    margin-left: 10px;
-}
-
-.folder_setion dl dd:after {
+.folder_setion dl dd:not(:last-child):after {
     content: "|";
     display: inline-block;
     margin-left: 10px;
-    margin-right: 10px;
 }
 
+.container .banner_wrap .lesson_left ul:hover+.line {
+    visibility: hidden;
+}
 
-/**
-     *本来dd设置为浮动向左的，但是由于设置之后，都骑到dt上去了，不知道如何修复，所以将dd改成了inline-block   
-    .folder_setion dl dt:before,
-    .folder_setion dl dt:after {
-        display: block;
-        content: "clear";
-        clear: both;
-        height: 0;
-        overflow: hidden;
-        visibility: hidden;
-    }*/
+.container .banner_wrap .lesson_left ul:hover {
+    overflow: visible;
+    position: absolute;
+    z-index: 3;
+}
 
+.container .banner_wrap .lesson_left ul:hover li:not(:hover) .folder_setion {
+    display: none;
+}
 
-/*以上为中部banner左边样式，
-    *其中hover之后出来的div与左侧对齐的样式没有搞出来
-    *dl下的dt样式没有搞好
-    *左侧底部的小三角还没有弄，是否用position为absolute来定位呢？为什么z-index不起作用呢？
-    */
+.container .banner_wrap .lesson_left ul li:hover {
+    border-right: none;
+}
 
 .line {
     width: 210px;
     height: 12px;
-    margin: 0;
+    margin-bottom: -11px;
     background: #e4e4e4;
-    position: relative;
-    z-index: 0;
+    position: absolute;
+    bottom: 0;
 }
 
 .line:before {
@@ -367,6 +349,13 @@ body {
     left: 100px;
     top: -3px;
 }
+
+
+/*以上为中部banner左边样式，
+    *其中hover之后出来的div与左侧对齐的样式没有搞出来
+    *dl下的dt样式没有搞好
+    *左侧底部的小三角还没有弄，是否用position为absolute来定位呢？为什么z-index不起作用呢？
+    */
 
 
 /*inner_banner部分*/
@@ -476,8 +465,6 @@ body {
 }
 
 .main .hot_course_list ul {
-    margin: 0;
-    padding: 0;
     border-bottom: 1px solid #e4e4e4;
 }
 
@@ -516,44 +503,58 @@ body {
 }
 
 .hot_course ul {
-    height: 480px;
-    margin: 0;
-    padding: 0;
-    margin-left: -12px;
-    margin-right: -1px;
+    position: relative;
 }
 
 .hot_course ul li {
     width: 235px;
-    height: 220px;
+    list-style: none;
     display: inline-block;
     vertical-align: top;
-    overflow: hidden;
-    margin-left: 13px;
+    margin-left: 10px;
     margin-top: 10px;
+    position: relative;
+}
+
+.hot_course ul li .item {
+    width: 233px;
     border: 1px solid #e4e4e4;
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     -transition: all 0.3s ease;
 }
 
+.hot_course ul li .item:hover {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 1;
+}
+
+.hot_course ul li .item:hover p {
+    display: block;
+    -moz-transition: all 0.7s ease;
+    -webkit-transition: all 0.7s ease;
+    -transition: all 0.7s ease;
+}
+
 .item div img {
-    width: 235px;
+    width: 233px;
     height: 130px;
 }
 
 .item h2 {
     font-size: 16px;
+    margin-top: 10px;
     margin-left: 10px;
     font-weight: normal;
 }
 
 .item p {
     width: 206px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 16px;
-    margin: 25px auto 0 auto;
     height: 50px;
+    margin: 10px auto 0 auto;
     overflow: hidden;
     color: #838383;
     display: none;
@@ -565,23 +566,16 @@ body {
 .item .ins {
     width: 206px;
     color: #838383;
-    font-size: 14px;
-    margin: 10px auto 0 auto;
+    font-size: 12px;
+    margin: 10px auto 10px auto;
 }
 
-.hot_course ul li:hover {
-    height: 305px;
-    /*position: absolute;*/
-    -moz-transition: all 0.7s ease;
-    -webkit-transition: all 0.7s ease;
-    -transition: all 0.7s ease;
+.item .ins span:nth-child(2) {
+    float: right;
 }
 
-.hot_course ul li:hover p {
-    display: block;
-    -moz-transition: all 0.7s ease;
-    -webkit-transition: all 0.7s ease;
-    -transition: all 0.7s ease;
+.item .ins .level {
+    margin-top: 10px;
 }
 
 
@@ -590,7 +584,7 @@ body {
 .main {
     margin: 20px auto;
     margin-bottom: 25px;
-    width: 1000px;
+    width: 1010px;
 }
 
 .main:after {
@@ -672,23 +666,20 @@ body {
 }
 
 .job_path_content>a {
-    /*display: inline-block;*/
+    display: block;
     float: left;
     height: 300px;
     width: 199px;
-    border: 1px solid #e4e4e4;
-    margin-left: -1px;
+    border-top: 1px solid #e4e4e4;
+    border-left: 1px solid #e4e4e4;
     text-decoration: none;
-    /*margin-left: -5px;*/
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    transition: all 1s ease;
-    /*下面这一句没有起作用*/
+    box-sizing: border-box;
+    /*下面这一句没有起作用，不是表格的不起作用*/
     border-collapse: collapse;
 }
 
 .job_path_content>a>* {
-    width: 199px;
+    width: 197px;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -728,19 +719,30 @@ body {
 /*为了在hover的时候显示四条边而同时在展示的时候并不想要2px的边框，所以用了margin的正负边距，带来的副作用就是右边的a会随着一起动*/
 
 .job_path_content>a:hover {
-    border: 1px solid #35b558;
-    margin-right: 1px;
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    transition: all 1s ease;
+    border-top: 1px solid #35b558;
+    border-left: 1px solid #35b558;
+    border-bottom: 1px solid #35b558;
 }
 
-
-/*应该是下下策。。还是尝试用floatleft
-.job_path_content>a:hover+a{
-    border-left:  1px solid #35b558;
+.job_path_content a:nth-child(5n) {
+    border-right: 1px solid #e4e4e4;
 }
-*/
+
+.job_path_content a:nth-child(5n):hover {
+    border-right: 1px solid #35b558;
+}
+
+.job_path_content a:nth-child(n+6) {
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.job_path_content a:nth-child(n+6):hover {
+    border-bottom: 1px solid #35b558;
+}
+
+.job_path_content>a:hover+a {
+    border-left: 1px solid #35b558;
+}
 
 .job_path_content>a:hover .turngreen_btn {
     background-color: #35b558;
@@ -754,37 +756,70 @@ body {
 /*knowledge_path START*/
 
 .knowledte_path_content {
-    width: 994px;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    padding-top: 5px;
+    width: 1000px;
 }
 
 .knowledte_path_content>.grid {
-    width: 167px;
+    width: 163px;
     height: 120px;
-    display: inline-block;
+    display: block;
+    float: left;
+    border-style: solid;
+    border-color: #e4e4e4;
+    border-width: 1px 0 0 1px;
     overflow: hidden;
-    margin-left: -5px;
-    margin-top: -3px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.knowledte_path_content>.grid:nth-child(6n) {
+    border-right: 1px solid #e4e4e4;
+}
+
+.knowledte_path_content>.grid:nth-child(n+13) {
+    border-bottom: 1px solid #e4e4e4;
 }
 
 .knowledte_path_content>.grid:hover {
     cursor: pointer;
-    position: relative;
+    border-bottom: 1px solid;
+    border-color: #35b558;
+}
+
+.knowledte_path_content>.grid:hover .font {
+    transform: rotateY(-180deg);
+    transition: 1s ease;
+}
+
+.knowledte_path_content>.grid:hover .back {
+    transform: rotateY(0deg);
+    transition: 1s ease;
+}
+
+.knowledte_path_content>.grid:hover+.grid {
+    border-left: 1px solid #35b558;
+}
+
+.font {
+    z-index: 2;
+    transform: rotateY(0deg);
+    transition: 1s ease;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: #f5f5f5;
+    transition: 1s ease;
 }
 
 .front,
 .back {
-    width: 165px;
-    height: 118px;
-    border: 1px solid #e4e4e4;
-    text-align: center;
-}
-
-.knowledte_path_content>.grid:hover .front {
+    backface-visibility: hidden;
+    display: block;
     position: absolute;
-    top: -120px;
+    width: 163px;
+    height: 120px;
+    text-align: center;
 }
 
 .front img {
@@ -801,10 +836,6 @@ body {
 .front>span {
     color: #35b558;
     font-size: 14px;
-}
-
-.back {
-    background: #f5f5f5;
 }
 
 .back>span {
@@ -866,7 +897,6 @@ body {
     height: 257px;
     margin: 0 auto;
     background-color: #fff;
-    /*border: 1px solid green;*/
 }
 
 .up h2 {
@@ -1014,10 +1044,35 @@ body {
     visibility: visible;
 }
 
-.wiki_img dl dd .wikiBook {
+.wiki_img dl dd .wiki_wrapper:hover+.look {
+    visibility: visible;
+}
+
+.wiki_wrapper {
     width: 147px;
     height: 190px;
-    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: #999;
+}
+
+.wikiBook {
+    width: 147px;
+    height: 190px;
+    display: block;
+    border-radius: 10px;
+    transform-origin: left center;
+    transform: rotateY(0deg);
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.wikiBook:hover {
+    transform-origin: left center;
+    transform: rotateY(-20deg);
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .wiki_img dl dd h3,
@@ -1071,7 +1126,23 @@ body {
     padding: 15px;
     position: relative;
 }
+.coperation_content:hover:before,.school_content:hover:before,.media_content:hover:before{
+    content: url(../img/left.png);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -30px;
+    cursor: pointer;
 
+}
+.coperation_content:hover:after,.school_content:hover:after,.media_content:hover:after{
+    content: url(../img/right.png);
+     position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -30px;
+    cursor: pointer;
+}
 .coperation_content>a>img {
     width: 148px;
     height: 50px;
@@ -1146,6 +1217,10 @@ body {
 .contact a {
     text-decoration: none;
     color: #808080;
+}
+
+.contact a:hover {
+    color: #35b558;
 }
 
 .contact dl {
