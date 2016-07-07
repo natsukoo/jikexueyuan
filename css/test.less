@@ -1,0 +1,372 @@
+@charset "utf-8";
+//less库
+@import "less/style";
+@import 'less/variables';
+
+//先调用库里面的重置样式
+.reset();
+
+a:hover{color: @dark-green;}
+
+html,body,.wrapper{
+    width: 100%;
+}
+
+//header
+.header{
+    @logo_h:42px;
+    @logo_w:114px;
+    .box(100%,70px);
+    .bdb(2px,@dark-green,solid);
+    .wrap{
+        .box(@h:62px);
+        margin:4px auto;
+        &>a{
+            .fl();
+            .box(@logo_w,@logo_h);
+            .mgt(12px);
+            img{
+                .box(@logo_w,@logo_h);
+            }
+        }
+    }
+    .search_box{
+        .fl();
+        .r-box(380px,40px);
+        .mgt(14px);
+        .mgl(200px);
+        font-size: 0;
+        .search_btn{
+            .box(40px,38px);
+            .bg(@url:'../img/magnifier.png',@bgst:110%);
+            .border();
+            border-left: none;
+            &:hover{
+                background-image: url(../img/magnifier2.png);
+                cursor: pointer;
+            }
+        }
+        .keywords{
+            .box(310px,30px);
+            .border();
+            padding: 3px 12px;
+            font-size: 12px;
+            vertical-align: top;
+            &:focus+.hot_words{
+                display: none;
+                &+.search_btn{
+                    background-image: url('../img/magnifier2.png');
+                }
+            }
+        }
+        
+        .hot_words{
+            .a-box(130px,17px,@r:42px,@t:13px);
+            &>a{
+                .blockbox(inline-block,12px,12px,#808080);
+                background-color: #f3f3f3;
+                .mgr(7px);
+                padding: 1px;
+                &:hover{
+                    background-color: #dfdfdf;
+                    color: #333;
+                }
+            }
+        }
+    }
+    .loginbox{
+        .fr();
+        .box(230px,20px);
+        .mgt(25px);
+        .mgr(-8px);
+        font-size: 13px;
+        a{
+            .mgl(8px);
+            .mgr(8px);
+        }
+    }
+}
+
+//nav
+.nav{
+    @nbh:42px;
+    .box(100%,@nbh);
+    .bdb(#e8e8e8 2px solid);
+    .shadow(0 3px 3px 3px rgba(245,245,245,0.5));
+    .wrap{
+        .r-box(@basew,@nbh);
+        margin:0 auto;
+        .nav_box{
+            .box(730px,@nbh);
+            display: inline-block;
+            font-size: 0;
+            .mgl(-22px);
+            a{
+                display: inline-block;
+                font-size: 15px;
+                padding: 0 22px;
+                line-height: @nbh;
+            }
+            .nav_box_detail{
+                display: none;
+                .a-box(100%,150px,@l:0,@t:@nbh);
+                .border(@c:rgba(200,200,200,0.8));
+                .shadow(0 2px 3px rgba(200,200,200,0.6));
+                background-color: #fff;
+                z-index: 6;
+                font-size: 14px;
+                .de_content{
+                    .box(430px,100%);
+                    .mgl(50px);
+                    ul{
+                        .fl();
+                        .r-box(84px,130px);
+                        .bdl();
+                        padding: 10px;
+                        vertical-align: top;
+                        .de_content_active{
+                            background-color: #f7f7f7;
+                        }
+                        &:hover{
+                            background-color: #f7f7f7;
+                        }
+                        li{
+                        color: #9f9f9f;
+                        font-size: 12px;
+                        line-height: 30px;
+                        cursor: pointer;
+                        &:hover{
+                            color: @dark-green;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+    //小三角的符号
+    .arrow{
+        .a-box(0,0,@l:40%,@t:-14px);
+        z-index: 5;
+        .blockbox(inline-block,0,0,transparent);
+        .point(top,7px,#eee);
+        .shadow(0 0 1px rgba(230,230,230,0.8));
+    }
+    .user_need{
+        .fr();
+        .mgr(-10px);
+        .box(270px,@nbh);
+        a{
+            padding: 0 10px;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-block;
+            line-height: @nbh;
+            img{
+                vertical-align: text-bottom;
+            }
+            &:hover{
+                color: @dark-green;
+            }
+        }
+    }
+}
+
+//middle
+.container{
+    width: 100%;
+    min-width:@basew;
+}
+
+.banner_wrap{
+    @banner_hei:307px;
+
+    .r-box(@basew,auto);
+    margin:15px auto;
+    //left part
+    .lesson_left{
+        @basehei:37px;
+        .r-box(210px,307px);
+        display: inline-block;
+        .bgw();
+        ul{
+            .a-box(100%,300px);
+            .bdt(@dark-green,3px);
+            overflow: hidden;.bgw();
+            &>li{
+                .box(207px,@basehei);
+                .border(@c:#f5f5f5);
+                .bdl(2px,#f5f5f5);.bgw();
+                &>a{
+                    .blockbox(block,14px,@basehei,#000);
+                    .box(193px,@basehei);
+                    padding-left: 15px;
+                    &:after{
+                        .fr();
+                        .box(15px,15px);
+                        .mgr(10px);
+                        content: url('../img/arrowr.ico');
+                    }
+                }
+                &:hover{
+                        .bdl(2px,@dark-green);
+                        //上面的一个toggle元素是6，这个不能超过5
+                        z-index: 5;
+                        border-right: none;
+                        color: @dark-green;.bgw();
+                        a:after{
+                           content: "";
+                        }
+                        .folder_setion{
+                            .mgl(-1px);
+                            //z-index有继承父元素的性质，所以虽然设置为－1，但也比外面的元素要高一些。
+                            z-index:-1;
+                        }
+                    }
+                .folder_setion{
+                    .a-box(400px,410px,210px);.bgw();
+                    .border();
+                    z-index:3;
+                    font-size: 13px;
+                    dl dt{
+                        .bdb();
+                        .box(auto,@basehei);
+                        line-height: @basehei;
+                        background-color: rgba(255,255,255,1);
+                        margin:0 10px;
+                    }
+                    dl dd{
+                        height: @basehei;
+                        line-height: @basehei;
+                        margin:5px 0;padding-left: 10px;display: inline-block;
+                        &:not(:last-child):after{
+                            content: '|';
+                            display: inline-block;
+                            .mgl(10px);
+                        }
+                    }
+                }
+            }
+            &:hover{
+                overflow: visible;
+                background-color: rgba(255,255,255,1);
+                &.line{
+                    display:none;
+                }
+                //看看能不能让左边压在右边的上面。要细调。已调好
+                li:hover{
+                    z-index: 3;
+                }
+                li:not(:hover) .folder_setion{
+                    display: none;
+                }
+            }
+        }
+        .line{
+            .a-box(210px,10px,@t:100%);
+            background-color: #e4e4e4;
+            &:before{
+                content: url('../img/arrow.png');
+                .a-box(100%,100%,100px,0);
+                line-height: 10px;
+            }
+        }
+    }
+
+    //middle part banner pic
+    .inner_banner{
+        @imgw:570px;
+        @imgh:304px;
+        .a-box(@imgw,@imgh,220px,@t:3px);
+        z-index: -2;
+        display:block;
+        cursor: pointer;.border();
+        border-right: none;
+        .img_wrap li{
+            position: absolute;
+            img{
+                .box(@imgw,@imgh);
+            }
+        }
+        .tripper{
+            position: absolute;bottom: 15px;
+            font-size: 0;width: 100%;
+            text-align: center;
+            li{
+                display: inline-block;
+                .box(25px,3px);
+                .mgl(20px);
+                background-color: rgba(20,20,20,0.5);
+            }
+
+        }
+        .banner_side{
+            .center-box(25px,40px);
+            background-color: rgba(20,20,20,0.5);
+            font-size: 30px;line-height: 40px;
+            color: rgba(250,250,250,0.9);
+            // display: none;
+            cuisor:pointer;
+        }
+        .banner_left{
+            left: 0;
+            margin-left: 0;
+        }
+        .banner_right{
+            right:0;
+            left:auto;
+        }
+    }
+
+    //right part
+    .lesson_right{
+        .fr();
+        .box(210px,305px);
+        margin-top: 3px;
+        .lesson_right_box{
+            .box(208px,151px);
+            .border();
+        }
+        .adjust{
+            .mgb(-1px);
+            p{
+                padding: 8px;
+            }
+        }
+        a{
+            display: block;
+            .r-box(166px,111px);
+            margin:0 auto;padding: 10px;
+            h2{
+                .mgt(0);
+                font-size: 16px;font-weight: normal;
+            }
+            p{
+                margin: 15px auto;
+                color: @dark-green;
+                font-size: 13px;line-height: 20px;letter-spacing:0.1em;
+            }
+            input{
+                .a-box(135px,30px,@t:auto);
+                font-size: 14px;line-height: 26px;bottom:0px;
+                .anisty(all,1s,ease);
+                &.up_btn{
+                    background: #7bda95;
+                    color: #fff;
+                    .border();
+                }
+                &.bottom_btn{
+                    color: @dark-green;background-color: #f3fff6;.border();
+                }
+                &:hover{
+                    .anisty(all,1s,ease);
+                    background: @dark-green;
+                    color:#fff;
+                }
+            }
+        }
+    }
+}
+
+
+

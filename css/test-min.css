@@ -1,0 +1,493 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea,
+button {
+  outline: none;
+  border: none;
+  background: none;
+}
+input:focus {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+}
+a:hover {
+  color: #34b256;
+}
+html,
+body,
+.wrapper {
+  width: 100%;
+}
+.header {
+  width: 100%;
+  height: 70px;
+  border-bottom: 2px #34b256 solid;
+}
+.header .wrap {
+  width: 1000px;
+  height: 62px;
+  margin: 4px auto;
+}
+.header .wrap > a {
+  float: left;
+  width: 114px;
+  height: 42px;
+  margin-top: 12px;
+}
+.header .wrap > a img {
+  width: 114px;
+  height: 42px;
+}
+.header .search_box {
+  float: left;
+  width: 380px;
+  height: 40px;
+  position: relative;
+  margin-top: 14px;
+  margin-left: 200px;
+  font-size: 0;
+}
+.header .search_box .search_btn {
+  width: 40px;
+  height: 38px;
+  background-color: #fff;
+  background-image: url('../img/magnifier.png');
+  background-size: 100% 110%;
+  background-repeat: no-repeat;
+  border: 1px #e4e4e4 solid;
+  border-left: none;
+}
+.header .search_box .search_btn:hover {
+  background-image: url(../img/magnifier2.png);
+  cursor: pointer;
+}
+.header .search_box .keywords {
+  width: 310px;
+  height: 30px;
+  border: 1px #e4e4e4 solid;
+  padding: 3px 12px;
+  font-size: 12px;
+  vertical-align: top;
+}
+.header .search_box .keywords:focus + .hot_words {
+  display: none;
+}
+.header .search_box .keywords:focus + .hot_words + .search_btn {
+  background-image: url('../img/magnifier2.png');
+}
+.header .search_box .hot_words {
+  position: absolute;
+  width: 130px;
+  height: 17px;
+  left: auto;
+  right: 42px;
+  top: 13px;
+}
+.header .search_box .hot_words > a {
+  font-size: 12px;
+  line-height: 12px;
+  display: inline-block;
+  color: #808080;
+  background-color: #f3f3f3;
+  margin-right: 7px;
+  padding: 1px;
+}
+.header .search_box .hot_words > a:hover {
+  background-color: #dfdfdf;
+  color: #333;
+}
+.header .loginbox {
+  float: right;
+  width: 230px;
+  height: 20px;
+  margin-top: 25px;
+  margin-right: -8px;
+  font-size: 13px;
+}
+.header .loginbox a {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.nav {
+  width: 100%;
+  height: 42px;
+  border-bottom: #e8e8e8 2px solid #e4e4e4 solid;
+  -webkit-box-shadow: 0 3px 3px 3px rgba(245, 245, 245, 0.5);
+  -moz-box-shadow: 0 3px 3px 3px rgba(245, 245, 245, 0.5);
+  box-shadow: 0 3px 3px 3px rgba(245, 245, 245, 0.5);
+}
+.nav .wrap {
+  width: 1000px;
+  height: 42px;
+  position: relative;
+  margin: 0 auto;
+}
+.nav .wrap .nav_box {
+  width: 730px;
+  height: 42px;
+  display: inline-block;
+  font-size: 0;
+  margin-left: -22px;
+}
+.nav .wrap .nav_box a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 0 22px;
+  line-height: 42px;
+}
+.nav .wrap .nav_box .nav_box_detail {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  left: 0;
+  right: auto;
+  top: 42px;
+  border: 1px rgba(200, 200, 200, 0.8) solid;
+  -webkit-box-shadow: 0 2px 3px rgba(200, 200, 200, 0.6);
+  -moz-box-shadow: 0 2px 3px rgba(200, 200, 200, 0.6);
+  box-shadow: 0 2px 3px rgba(200, 200, 200, 0.6);
+  background-color: #fff;
+  z-index: 6;
+  font-size: 14px;
+}
+.nav .wrap .nav_box .nav_box_detail .de_content {
+  width: 430px;
+  height: 100%;
+  margin-left: 50px;
+}
+.nav .wrap .nav_box .nav_box_detail .de_content ul {
+  float: left;
+  width: 84px;
+  height: 130px;
+  position: relative;
+  border-left: 1px #e4e4e4 solid;
+  padding: 10px;
+  vertical-align: top;
+}
+.nav .wrap .nav_box .nav_box_detail .de_content ul .de_content_active {
+  background-color: #f7f7f7;
+}
+.nav .wrap .nav_box .nav_box_detail .de_content ul:hover {
+  background-color: #f7f7f7;
+}
+.nav .wrap .nav_box .nav_box_detail .de_content ul li {
+  color: #9f9f9f;
+  font-size: 12px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.nav .wrap .nav_box .nav_box_detail .de_content ul li:hover {
+  color: #34b256;
+}
+.nav .arrow {
+  position: absolute;
+  left: 40%;
+  right: auto;
+  top: -14px;
+  z-index: 5;
+  display: inline-block;
+  color: transparent;
+  border-width: 7px;
+  border-color: transparent transparent #eee transparent;
+  border-style: dashed dashed solid dashed;
+  width: 0;
+  height: 0;
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  -webkit-box-shadow: 0 0 1px rgba(230, 230, 230, 0.8);
+  -moz-box-shadow: 0 0 1px rgba(230, 230, 230, 0.8);
+  box-shadow: 0 0 1px rgba(230, 230, 230, 0.8);
+}
+.nav .user_need {
+  float: right;
+  margin-right: -10px;
+  width: 270px;
+  height: 42px;
+}
+.nav .user_need a {
+  padding: 0 10px;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 42px;
+}
+.nav .user_need a img {
+  vertical-align: text-bottom;
+}
+.nav .user_need a:hover {
+  color: #34b256;
+}
+.container {
+  width: 100%;
+  min-width: 1000px;
+}
+.banner_wrap {
+  width: 1000px;
+  height: auto;
+  position: relative;
+  margin: 15px auto;
+}
+.banner_wrap .lesson_left {
+  width: 210px;
+  height: 307px;
+  position: relative;
+  display: inline-block;
+  background-color: #ffffff;
+}
+.banner_wrap .lesson_left ul {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  left: auto;
+  right: auto;
+  top: 0;
+  border-top: #34b256 3px solid;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.banner_wrap .lesson_left ul > li {
+  width: 207px;
+  height: 37px;
+  border: 1px #f5f5f5 solid;
+  border-left: 2px #f5f5f5 solid;
+  background-color: #ffffff;
+}
+.banner_wrap .lesson_left ul > li > a {
+  font-size: 14px;
+  line-height: 37px;
+  display: block;
+  color: #000;
+  width: 193px;
+  height: 37px;
+  padding-left: 15px;
+}
+.banner_wrap .lesson_left ul > li > a:after {
+  float: right;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  content: url('../img/arrowr.ico');
+}
+.banner_wrap .lesson_left ul > li:hover {
+  border-left: 2px #34b256 solid;
+  z-index: 5;
+  border-right: none;
+  color: #34b256;
+  background-color: #ffffff;
+}
+.banner_wrap .lesson_left ul > li:hover a:after {
+  content: "";
+}
+.banner_wrap .lesson_left ul > li:hover .folder_setion {
+  margin-left: -1px;
+  z-index: -1;
+}
+.banner_wrap .lesson_left ul > li .folder_setion {
+  position: absolute;
+  width: 400px;
+  height: 410px;
+  left: 210px;
+  right: auto;
+  top: 0;
+  background-color: #ffffff;
+  border: 1px #e4e4e4 solid;
+  z-index: 3;
+  font-size: 13px;
+}
+.banner_wrap .lesson_left ul > li .folder_setion dl dt {
+  border-bottom: 1px #e4e4e4 solid;
+  width: auto;
+  height: 37px;
+  line-height: 37px;
+  background-color: #ffffff;
+  margin: 0 10px;
+}
+.banner_wrap .lesson_left ul > li .folder_setion dl dd {
+  height: 37px;
+  line-height: 37px;
+  margin: 5px 0;
+  padding-left: 10px;
+  display: inline-block;
+}
+.banner_wrap .lesson_left ul > li .folder_setion dl dd:not(:last-child):after {
+  content: '|';
+  display: inline-block;
+  margin-left: 10px;
+}
+.banner_wrap .lesson_left ul:hover {
+  overflow: visible;
+  background-color: #ffffff;
+}
+.banner_wrap .lesson_left ul:hover.line {
+  display: none;
+}
+.banner_wrap .lesson_left ul:hover li:hover {
+  z-index: 3;
+}
+.banner_wrap .lesson_left ul:hover li:not(:hover) .folder_setion {
+  display: none;
+}
+.banner_wrap .lesson_left .line {
+  position: absolute;
+  width: 210px;
+  height: 10px;
+  left: auto;
+  right: auto;
+  top: 100%;
+  background-color: #e4e4e4;
+}
+.banner_wrap .lesson_left .line:before {
+  content: url('../img/arrow.png');
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 100px;
+  right: 0;
+  top: 0;
+  line-height: 10px;
+}
+.banner_wrap .inner_banner {
+  position: absolute;
+  width: 570px;
+  height: 304px;
+  left: 220px;
+  right: auto;
+  top: 3px;
+  z-index: -2;
+  display: block;
+  cursor: pointer;
+  border: 1px #e4e4e4 solid;
+  border-right: none;
+}
+.banner_wrap .inner_banner .img_wrap li {
+  position: absolute;
+}
+.banner_wrap .inner_banner .img_wrap li img {
+  width: 570px;
+  height: 304px;
+}
+.banner_wrap .inner_banner .tripper {
+  position: absolute;
+  bottom: 15px;
+  font-size: 0;
+  width: 100%;
+  text-align: center;
+}
+.banner_wrap .inner_banner .tripper li {
+  display: inline-block;
+  width: 25px;
+  height: 3px;
+  margin-left: 20px;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+.banner_wrap .inner_banner .banner_side {
+  width: 25px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  margin-top: -20px;
+  margin-left: -12.5px;
+  background-color: rgba(20, 20, 20, 0.5);
+  font-size: 30px;
+  line-height: 40px;
+  color: rgba(250, 250, 250, 0.9);
+  cuisor: pointer;
+}
+.banner_wrap .inner_banner .banner_left {
+  left: 0;
+  margin-left: 0;
+}
+.banner_wrap .inner_banner .banner_right {
+  right: 0;
+  left: auto;
+}
+.banner_wrap .lesson_right {
+  float: right;
+  width: 210px;
+  height: 305px;
+  margin-top: 3px;
+}
+.banner_wrap .lesson_right .lesson_right_box {
+  width: 208px;
+  height: 151px;
+  border: 1px #e4e4e4 solid;
+}
+.banner_wrap .lesson_right .adjust {
+  margin-bottom: -1px;
+}
+.banner_wrap .lesson_right .adjust p {
+  padding: 8px;
+}
+.banner_wrap .lesson_right a {
+  display: block;
+  width: 166px;
+  height: 111px;
+  position: relative;
+  margin: 0 auto;
+  padding: 10px;
+}
+.banner_wrap .lesson_right a h2 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+.banner_wrap .lesson_right a p {
+  margin: 15px auto;
+  color: #34b256;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+}
+.banner_wrap .lesson_right a input {
+  position: absolute;
+  width: 135px;
+  height: 30px;
+  left: auto;
+  right: auto;
+  top: auto;
+  font-size: 14px;
+  line-height: 26px;
+  bottom: 0px;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.banner_wrap .lesson_right a input.up_btn {
+  background: #7bda95;
+  color: #fff;
+  border: 1px #e4e4e4 solid;
+}
+.banner_wrap .lesson_right a input.bottom_btn {
+  color: #34b256;
+  background-color: #f3fff6;
+  border: 1px #e4e4e4 solid;
+}
+.banner_wrap .lesson_right a input:hover {
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  background: #34b256;
+  color: #fff;
+}

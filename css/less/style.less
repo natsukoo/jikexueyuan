@@ -1,0 +1,180 @@
+//仿一个less库
+//源文件http://t.cn/RZb4zvk
+
+//common reset
+.reset() { 
+	* {margin: 0;padding: 0;}
+    li {list-style:none;}
+    img {border: none;}
+    input, select, textarea, button{outline: none;border: none;background: none;}
+    input:focus{outline: none;}
+    textarea {resize: none}
+    a {text-decoration: none;cursor:pointer;color: #000;}
+}
+
+//float
+.fl(@f:left;){float:@f;}
+.fr(@f:right){float: @f;}
+//position
+.rel(@rel:relative){position:@rel;}
+.abs(@abs:absolute){position:@abs;}
+.fix(@fix:fixed){position: @fix;}
+//layout极客主要中间的布局
+.box(@w:1000px,@h){
+	width: @w;
+	height: @h;
+}
+.blockbox(@disp,@fsz:14px,@lineh:14px,@color){
+	font-size:@fsz;
+	line-height: @lineh;
+	display: @disp;
+	color:@color;
+}
+//全局定位
+.pos(r){position: relative;}
+.pos(a){position: absolute;}
+.pos(a,@t:auto,@r:auto,@b:auto,@l:auto){
+	.pos(a);
+	top:@t;right: @r;bottom: @b;left: @l;
+}
+.pos(f){position: fixed;}
+.r-box(@w,@h){
+	width:@w;
+	height: @h;
+	position:relative;
+}
+.a-box(@w,@h,@l:auto,@r:auto,@t:0){
+	position:absolute;
+	.box(@w,@h);
+	left:@l;
+	right:@r;
+	top:@t;
+}
+.center-box(@w,@h,@dis:block){
+	.box(@w,@h);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	display: block;
+	margin-top: -@h / 2;
+	margin-left: -@w / 2;
+}
+
+//margin样式
+.mgl(@l){
+	margin-left: @l;
+}
+.mgr(@r){
+	margin-right: @r;
+}
+.mgb(@b){
+	margin-bottom: @b;
+}
+.mgt(@t){
+	margin-top: @t;
+}
+.layout-center(){
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+//边框样式
+.bdt(@w:1px,@c:#e4e4e4,@s:solid){
+	border-top: @w @c @s;
+}
+.bdr(@w:1px,@c:#e4e4e4,@s:solid){
+	border-right:@w @c @s;
+}
+.bdl(@w:1px,@c:#e4e4e4,@s:solid){
+	border-left:@w @c @s;
+}
+.bdb(@w:1px,@c:#e4e4e4,@s:solid){
+	border-bottom:@w @c @s;
+}
+.border(@w:1px,@c:#e4e4e4,@s:solid){
+	border:@arguments;
+}
+//关于背景图样式background-postion
+.bgw(){
+	background-color: rgba(255,255,255,1);
+}
+.bg(@bgc:#fff,@url,@bgsl:100%,@bgst:100%){
+	background-color: @bgc;
+	background-image: url(@url);
+	background-size:@bgsl @bgst;
+	background-repeat: no-repeat;
+}
+.bgp(@bgsl,@bgst){
+	background-position: @bgsl @bgst;
+}
+
+//三角的样式，运用了匹配模式
+.point(top,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent @c transparent;
+	border-style: dashed dashed solid dashed;
+}
+.point(left,@w,@c){
+	border-width: @w;
+	border-color: transparent @c transparent transparent;
+	border-style: dashed solid dashed dashed;
+}
+.point(right,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent transparent @c;
+	border-style: dashed dashed dashed solid;
+}
+.point(bottom,@w,@c){
+	border-width: @w;
+	border-color:@c transparent transparent transparent;
+	border-style:solid dashed dashed dashed;
+}
+.point(@_,@w,@c){
+	.box(0,0);
+	display: block;
+	font-size: 0;
+	line-height: 0;
+}
+//animation style
+.anisty(@property,@time,@style){
+	-moz-transition: @property @time @style;
+    -webkit-transition: @property @time @style;
+    transition: @property @time @style;
+}
+
+//clearfix清除块的样式
+.cle(){
+	display: block;
+	content: "clear";
+	visibility: hidden;
+	overflow: hidden;
+	clear: both;
+}
+//shadow的多浏览器适配
+.shadow(@shadow){
+	-webkit-box-shadow:@shadow;
+    -moz-box-shadow:@shadow;
+    box-shadow:@shadow;
+}
+
+//圆角
+.bdradius(@radius){
+	-moz-border-radius:@radius;
+	-webkit-border-radius:@radius;
+	border-radius:@radius;
+}
+
+//boxsizing
+.boxsz(@style:border-box){
+    -webkit-boxsizing:@style;
+    -moz-boxsizing:@style;
+    box-sizing:@style;
+}
+//3d backface-visibility
+.bf(){
+	-webkit-backface-visibility:hidden; /* Chrome and Safari */
+    -moz-backface-visibility:hidden; /* Firefox */
+    -ms-backface-visibility:hidden; /* Internet Explorer */
+    backface-visibility: hidden;
+}
